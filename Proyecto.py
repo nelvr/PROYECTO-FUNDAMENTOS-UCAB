@@ -25,7 +25,7 @@ def calcular_puntaje_seguridad(contrasena):
         puntaje += 2 * (len(re.findall(r'[!@#$%^&*(),.?":{}|<>]', contrasena)) - 1)  # símbolos adicionales
 
     # Restar puntos por patrones obvios
-    patrones_obvios = leer_archivo('patrones_obvios.txt')
+    patrones_obvios = leer_archivo('patrones obvios.txt')
     for patron in patrones_obvios:
         if patron.lower() in contrasena.lower():
             puntaje -= 5
@@ -50,13 +50,13 @@ def ordenar_contrasenas(contrasenas):
     n = len(contrasenas)
     for i in range(n):
         for j in range(0, n-i-1):
-            if contrasenas[j][2] > contrasenas[j+1][2]:
-                contrasenas[j], contrasenas[j+1] = contrasenas[j+1], contrasenas[j]
+            if contrasenas[j][2] > contrasenas[j-1][2]:
+                contrasenas[j], contrasenas[j-1] = contrasenas[j-1], contrasenas[j]
     return contrasenas
 
 # Función principal
 def main():
-    contrasenas = leer_archivo('../Contrasenas.txt')
+    contrasenas = leer_archivo('claves proyecto.txt')
     resultados = []
 
     for contrasena in contrasenas:
